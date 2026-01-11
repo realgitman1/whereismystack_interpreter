@@ -8,5 +8,5 @@ output : H<p>
 
 2. Fibonacci sequence<p>
 input : ++++++++++s^<p>
-output : 11212142618446210626<p>
+output : 1123581321345589144<p>
    
