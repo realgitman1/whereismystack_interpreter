@@ -10,24 +10,19 @@ vector<string>dummymemory = memory;
 
 class Interpreter {
 public :
-	vector<string> output;
+	vector<int> output;
 	
 	void parse(const string& line){
-		
 		
 	
 		int length = line.length();
 		
-		string currentstring = "";
+		//string currentstring = "";
 
 		for (int i=0; i<length; i++){
 
 			char current = line[i];
 			
-			if((!isdigit(current)) && (current != '+') && (current != '-') &&(current != '*') && (current != '/') && (current != '=')){
-				currentstring += current;
-			}	
-
 			if(isspace(current)) continue;
 
 			if(isdigit(current)) continue;
@@ -38,37 +33,45 @@ public :
         				string last = memory.back();
 
         				string combined = secondLast + last;
+					int intcombined128 = stoi(combined) % 128;
+					string stringcombined = to_string(intcombined128);
 
-					if(currentstring != ""){
-						output.push_back(combined + currentstring);
-						currentstring.clear();
-					} else{
-
-						output.push_back(combined);
-					}
-					
+					output.push_back(stoll(combined) % 128);
+										
         				dummymemory = memory;
         				memory.clear();
        	 				memory = dummymemory;
         
-        				memory.push_back(combined);
-					continue;
+        				memory.push_back(stringcombined);
 
    				} else if (!memory.empty()) {
-        				output.push_back(memory.back());
+        				output.push_back(stoll(memory.back()));
     				}
-    					continue;
+
+				if(line[i+1] == '^'){
+				
+					for(int num : output){
+					char charachter = (char)num;
+					cout << charachter;
+					}
+
+					cout << endl;
+					
+					break;
 				}
+				
+				continue;	
+				
+			}
 
 			if(current == '^'){
-				
-				for(string s : output){
-					cout << s << endl;								
+				for(string s : memory){
+					cout << s;
 				}
 
 				break;
-
 			}
+
 			
 			if (current == '?') {
     				if (i + 2 >= line.length()) {
