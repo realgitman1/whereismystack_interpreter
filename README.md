@@ -2,11 +2,11 @@ This esolang turned out to be a bit of a disaster. I'm planning to push some maj
 
 #### where is my stack
 
-1. H
-input : ++--?15r=^
-output : H
+1. H<p>
+input : ++--?15r=^<p>
+output : H<p>
 
-2. Fibonacci sequence
-input : ++++++++++s^
-output : 11212142618446210626
+2. Fibonacci sequence<p>
+input : ++++++++++s^<p>
+output : 11212142618446210626<p>
    
