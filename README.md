@@ -7,6 +7,6 @@ input : ++--?15r=^<p>
 output : H<p>
 
 2. Fibonacci sequence<p>
-input : ++++++++++s^<p>
+input : ++++++++++^<p>
 output : 1123581321345589144<p>
    
